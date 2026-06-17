@@ -1,3 +1,5 @@
+https://es.r4ds.hadley.nz/27-rmarkdown.html
+
 # Introducción
 
 De los 4 archivos ".csv" anteriores, crear un apartado en el informe que se llame "Introducción" y que liste todas las variables dentro de cada archivo en formato lista.
