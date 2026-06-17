@@ -1,6 +1,6 @@
 ---
 title: "LLENAR EN CLASE"
-author: "Nicolas, Franco - Comisión 4A"
+author: "Santos Nicolas Vazquez, Franco Gallo Bal - Comisión 4A"
 date: "2026"
 output: pdf_document
 ---
@@ -23,80 +23,12 @@ constructores <- read_csv("~/UNI/2026/1st Quarter/Data Lab 1/TP_DataLAB_1/Ejempl
 resultados <- read_csv("~/UNI/2026/1st Quarter/Data Lab 1/TP_DataLAB_1/Ejemplo resolucion TP 2025/resultados.csv")
 ```
 
-# 1. Introducción
-
-El presente informe analiza el **estado de finalización** de los corredores en todas las carreras.  
-Es un análisis **univariado** porque solo se estudia la variable categórica `estado`.
+# Introducción
 
 ---
 
-# 2. Análisis global (todos los corredores)
-
-## 2.1 Tabla de frecuencias
-
-```{r tabla_global}
-tabla_global <- resultados %>%
-  count(estado) %>%
-  mutate(porcentaje = n / sum(n) * 100)
-
-kable(tabla_global, 
-      caption = "Distribución del estado de finalización (todos los corredores)",
-      col.names = c("Estado", "Frecuencia absoluta", "Porcentaje (%)"),
-      digits = 2)
-```
-
-**Moda**: la categoría más frecuente es `"Completada"`.
-
-## 2.2 Gráfico de barras
-
-```{r grafico_global, echo = FALSE}
-ggplot(tabla_global, aes(x = estado, y = n, fill = estado)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Estado de finalización (todos los corredores)",
-       x = "Estado", y = "Frecuencia absoluta") +
-  theme_minimal() +
-  theme(legend.position = "none")
-```
+# Análisis 
 
 ---
 
-# 3. Análisis exclusivo para el equipo Mercedes
-
-## 3.1 Filtrado de datos
-
-```{r filtro_mercedes}
-resultados_mercedes <- resultados %>% filter(idConstructor == 131)
-```
-
-## 3.2 Tabla de frecuencias
-
-```{r tabla_mercedes}
-tabla_mercedes <- resultados_mercedes %>%
-  count(estado) %>%
-  mutate(porcentaje = n / sum(n) * 100)
-
-kable(tabla_mercedes,
-      caption = "Distribución del estado de finalización (solo Mercedes)",
-      col.names = c("Estado", "Frecuencia absoluta", "Porcentaje (%)"),
-      digits = 2)
-```
-
-## 3.3 Gráfico de barras
-
-```{r grafico_mercedes, echo = FALSE}
-ggplot(tabla_mercedes, aes(x = estado, y = n, fill = estado)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Estado de finalización (solo Mercedes)",
-       x = "Estado", y = "Frecuencia absoluta") +
-  theme_minimal() +
-  theme(legend.position = "none")
-```
-
----
-
-# 4. Conclusiones
-
-- En ambos casos la **moda** es `"Completada"`.
-- La proporción de finalizaciones es ligeramente superior en Mercedes.
-- Los gráficos de barras permiten visualizar la distribución de forma clara.
-
+# Conclusión
